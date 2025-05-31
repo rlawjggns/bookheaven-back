@@ -15,7 +15,7 @@ public class AdminController {
 
 
     /**
-     * 사용자 등록
+     * 사용자 등록(일련번호, 이름, 전화번호, 메모(부서나 기타 정보 등록) 등으로 등록)
      */
     @PostMapping("/members")
     public ResponseEntity<String> createMember(@RequestBody MemberCreateRequestDto request) {
@@ -31,7 +31,7 @@ public class AdminController {
     }
 
     /**
-     * 사용자 수정
+     * 사용자 수정(일련번호, 이름, 전화번호, 메모(부서나 기타 정보 등록) 등으로 수정)
      */
     @PatchMapping("/members")
     public ResponseEntity<String> updateMember(@RequestBody MemberCreateRequestDto request) {
@@ -47,19 +47,34 @@ public class AdminController {
     }
 
     /**
-     * 책 수정
-     */
-
-    /**
      * 책 조회 (대출 현황 및 이력)
      */
+    @GetMapping("/books")
+    public ResponseEntity<String> getBook() {
+        return null;
+    }
+
+    /**
+     * 책 수정
+     */
+    @PatchMapping("/books")
+    public ResponseEntity<String> updateBook() {
+        return null;
+    }
 
     /**
      * 책 대출 (도서 등록 번호와 사용자 번호로 대출 처리, 대출기간은 15일)
      */
+    @PostMapping("/books/loan")
+    public ResponseEntity<String> loanBook(@RequestBody String string) {
+        return null;
+    }
 
     /**
      * 책 반납 (도서 등록 번호와 사용자 번호로 반납 처리)
      */
-
+    @PostMapping("/books/return")
+    public ResponseEntity<String> returnBook(@RequestBody String string) {
+        return null;
+    }
 }

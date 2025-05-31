@@ -20,10 +20,10 @@ public class Member {
     @Column(name = "id")
     private Long id;
 
-    @Column(nullable = false, name = "email")
+    @Column(nullable = true, name = "email")
     private String email;
 
-    @Column(nullable = false, name = "password")
+    @Column(nullable = true, name = "password")
     private String password;
 
     @Column(nullable = false, name = "tel")

@@ -29,6 +29,9 @@ public class Loan {
     @Column(nullable = false, name = "return_status")
     private Boolean returnStatus;
 
+    @Column(nullable = false, name = "overdue_status")
+    private Boolean overdueStatus = Boolean.FALSE;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
 
@@ -45,6 +48,14 @@ public class Loan {
     }
 
     public LoanResponseDto toDto() {
+
+        Boolean currentOverdueStatus;
+        if (!this.returnStatus) { // 아직 반납 전
+            currentOverdueStatus = LocalDate.now().isAfter(this.getReturnDate());
+        } else { // 반납 후
+            currentOverdueStatus = this.getOverdueStatus();
+        }
+
         return LoanResponseDto.builder()
                 .memberName(member.getName())
                 .memberId(member.getId())
@@ -54,11 +65,14 @@ public class Loan {
                 .bookPublisher(book.getPublisher())
                 .loanDate(this.getLoanDate())
                 .returnDate(this.getReturnDate())
-                .overdueStatus(this.returnStatus == Boolean.FALSE && LocalDate.now().isAfter(this.getReturnDate()))
+                .returnStatus(this.getReturnStatus())
+                .overdueStatus(currentOverdueStatus)
                 .build();
     }
 
     public void returnBook() {
+        boolean isOverdue = LocalDate.now().isAfter(this.getReturnDate());
+        this.overdueStatus = isOverdue;
         this.returnStatus = Boolean.TRUE;
     }
 }

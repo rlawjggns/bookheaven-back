@@ -16,5 +16,6 @@ public class LoanResponseDto {
     private String bookPublisher;
     private LocalDate loanDate;
     private LocalDate returnDate;
-    private Boolean overdueStatus; // true면 현 날짜가 returnDate보다 지나 연체된 상태, false면 연체되지않은상태
+    private Boolean returnStatus;
+    private Boolean overdueStatus;
 }

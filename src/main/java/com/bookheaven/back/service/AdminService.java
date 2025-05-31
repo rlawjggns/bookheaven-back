@@ -104,7 +104,6 @@ public class AdminService {
         Book book = bookRepository.findById(bookId).orElseThrow(() -> new NoSuchElementException("해당 도서를 찾을 수 없습니다."));
         Member member = memberRepository.findById(memberId).orElseThrow(() -> new NoSuchElementException("해당 사용자를 찾을 수 없습니다."));
 
-
         loanRepository.findByBookAndMember(book, member)
                 .forEach(Loan::returnBook);
         return "성공적으로 반납이 진행되었습니다.";

@@ -28,3 +28,11 @@ jwt:
 
 server:
   port: 1271
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+
+  type-aliases-package: com.bookheaven.back.domain # XML에서 엔티티 타입을 간단히 쓸 수 있게 한다
+  configuration:
+    map-underscore-to-camel-case: true
+

@@ -32,7 +32,8 @@ public class Member {
     @Column(nullable = false, name = "memo")
     private String memo;
 
-    @Column(nullable = false, name = "role")
+    @Column(nullable = false, name = "member_role")
+    @Enumerated(EnumType.STRING)
     private MemberRole role;
 
     @OneToMany(mappedBy = "member")

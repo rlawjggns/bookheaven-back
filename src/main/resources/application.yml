@@ -21,10 +21,10 @@ spring:
 
 jwt:
   issuer: https://bookheaven.com
-  secret-key: c10da1aa67519f393bb808ac03dde4092ce7188ba5ff52413c4a876acc4bce73
+  secret-key: c10da1aa67519f393bb808ac03dde4092ce7188ba5ff52413c4a876acc4bce73c10da1aa67519f393bb808ac03dde4092
   duration: 1
   refresh-duration: 60
-  refresh-key: c10da1aa67519f393bb808ac03dde4092ce7188ba5ff52413c4a876acc4bce74
+  refresh-key: c10da1aa67519f393bb808ac03dde4092ce7188ba5ff52413c4a876acc4bce74c10da1aa67519f393bb808ac03dde4092
 
 server:
   port: 1271

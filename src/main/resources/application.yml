@@ -19,11 +19,12 @@ spring:
     username: sa
     password:
 
-#jwt.issuer=https://example.com
-#jwt.secret-key=c10da1aa67519f393bb808ac03dde4092ce7188ba5ff52413c4a876acc4bce73
-#jwt.duration=1
-#jwt.refresh-duration=60
-#jwt.refresh-key=c10da1aa67519f393bb808ac03dde4092ce7188ba5ff52413c4a876acc4bce74
+jwt:
+  issuer: https://bookheaven.com
+  secret-key: c10da1aa67519f393bb808ac03dde4092ce7188ba5ff52413c4a876acc4bce73
+  duration: 1
+  refresh-duration: 60
+  refresh-key: c10da1aa67519f393bb808ac03dde4092ce7188ba5ff52413c4a876acc4bce74
 
 server:
   port: 1271

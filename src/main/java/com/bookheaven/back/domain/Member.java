@@ -1,5 +1,6 @@
 package com.bookheaven.back.domain;
 
+import com.bookheaven.back.dto.MemberUpdateRequestDto;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -23,6 +24,9 @@ public class Member {
     @Column(nullable = true, name = "email")
     private String email;
 
+    @Column(nullable = false, name = "name")
+    private String name;
+
     @Column(nullable = true, name = "password")
     private String password;
 
@@ -40,11 +44,18 @@ public class Member {
     private List<Loan> loans = new ArrayList<>();
 
     @Builder
-    public Member(String email, String password, String tel, String memo, MemberRole role) {
+    public Member(String email, String password, String name, String tel, String memo, MemberRole role) {
         this.email = email;
         this.password = password;
+        this.name = name;
         this.tel = tel;
         this.memo = memo;
         this.role = role;
+    }
+
+    public void update(MemberUpdateRequestDto request) {
+        this.name = request.getName();
+        this.memo = request.getMemo();
+        this.tel = request.getTel();
     }
 }

@@ -1,5 +1,6 @@
 package com.bookheaven.back.domain;
 
+import com.bookheaven.back.dto.LoanResponseDto;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -19,13 +20,13 @@ public class Loan {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "loan_date")
+    @Column(nullable = false, name = "loan_date")
     private LocalDate loanDate;
 
-    @Column(name = "return_date")
+    @Column(nullable = false, name = "return_date")
     private LocalDate returnDate;
 
-    @Column(name = "return_status")
+    @Column(nullable = false, name = "return_status")
     private Boolean returnStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -41,5 +42,23 @@ public class Loan {
         this.returnStatus = returnStatus;
         this.member = member;
         this.book = book;
+    }
+
+    public LoanResponseDto toDto() {
+        return LoanResponseDto.builder()
+                .memberName(member.getName())
+                .memberId(member.getId())
+                .bookId(book.getId())
+                .bookName(book.getTitle())
+                .bookAuthor(book.getAuthor())
+                .bookPublisher(book.getPublisher())
+                .loanDate(this.getLoanDate())
+                .returnDate(this.getReturnDate())
+                .overdueStatus(this.returnStatus == Boolean.FALSE && LocalDate.now().isAfter(this.getReturnDate()))
+                .build();
+    }
+
+    public void returnBook() {
+        this.returnStatus = Boolean.TRUE;
     }
 }

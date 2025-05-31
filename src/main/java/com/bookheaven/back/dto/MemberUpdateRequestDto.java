@@ -1,15 +1,16 @@
 package com.bookheaven.back.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MemberCreateRequestDto {
+public class MemberUpdateRequestDto {
+    private Long id;
     private String name;
     private String tel;
     private String memo;

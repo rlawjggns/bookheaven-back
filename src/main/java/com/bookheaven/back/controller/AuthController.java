@@ -53,8 +53,8 @@ public class AuthController {
 
     @PostMapping("/logout")
     public ResponseEntity<?> logout() {
-        // JWT는 서버에 상태를 저장하지 않으므로 클라이언트 측에서 토큰을 제거합니다.
-        // 실제 토큰 무효화는 클라이언트에서 처리됩니다.
+        // JWT는 서버에 상태를 저장하지 않으므로 클라이언트 측에서 토큰을 제거한다
+        // 실제 토큰 무효화는 클라이언트에서 처리한다
         return ResponseEntity.ok().body("로그아웃 성공");
     }
 }

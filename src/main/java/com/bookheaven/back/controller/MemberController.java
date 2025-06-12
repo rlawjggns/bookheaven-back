@@ -3,9 +3,7 @@ package com.bookheaven.back.controller;
 import com.bookheaven.back.dto.BookSearchResponseDto;
 import com.bookheaven.back.dto.PageResponse;
 import com.bookheaven.back.mapper.BookMapper;
-import com.bookheaven.back.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +15,6 @@ import java.util.List;
 @RequestMapping("/member")
 @RequiredArgsConstructor
 public class MemberController {
-    private final MemberService memberService;
     private final BookMapper bookMapper;
 
     /**

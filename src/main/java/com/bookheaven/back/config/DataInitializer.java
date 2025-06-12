@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * 초기 데이터 삽입용 클래스
+ */
 @Component
 @Slf4j
 public class DataInitializer implements CommandLineRunner {
@@ -57,7 +60,7 @@ public class DataInitializer implements CommandLineRunner {
                         .role(MemberRole.REGULAR)
                         .build();
                 memberRepository.save(user);
-                log.info("✅ 일반 사용자 계정 생성: {}", email);
+                log.info("일반 사용자 계정 생성: {}", email);
             }
         }
 
@@ -70,7 +73,7 @@ public class DataInitializer implements CommandLineRunner {
                     Book.builder().title("죄와 벌").author("도스토예프스키").publisher("창비").publicationYear(1866).price(18000).build(),
                     Book.builder().title("이방인").author("알베르 카뮈").publisher("책세상").publicationYear(1942).price(14000).build()
             ));
-            log.info("✅ 도서 5권 데이터 삽입 완료");
+            log.info("도서 5권 데이터 삽입 완료");
         }
 
         // 대출 데이터
@@ -105,7 +108,7 @@ public class DataInitializer implements CommandLineRunner {
                                 .returnStatus(false)
                                 .build()
                 ));
-                log.info("✅ 대출 데이터 3건 삽입 완료");
+                log.info("대출 데이터 3건 삽입 완료");
             }
         }
     }
